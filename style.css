@@ -1,0 +1,91 @@
+html {
+    user-select: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    justify-content: center;
+    margin: 1rem;
+}
+.grid div {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border: 1px solid black;
+    font-size: 24px;
+    line-height: 60px;
+    cursor: pointer;
+    text-align: center;
+}
+.grid div::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: red;
+    transform: rotate(-45deg) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+}
+.grid div.strike::before {
+    transform: rotate(-45deg) scaleX(1);
+}
+.grid div.locked {
+    opacity: 0.6;
+    pointer-events: none;
+}
+.grid div.remaining {
+    position: relative;
+}
+.grid div.remaining::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border: 2px solid blue;
+    border-radius: 50%;
+    pointer-events: none;
+}
+.bingo-word {
+    font-size: 50px;
+    text-align: center;
+}
+.bingo-word span {
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    position: relative;
+    transition: color 1s ease;
+}
+.bingo-word span::after {
+    content: attr(id);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    z-index: -1;
+}
+.bingo-word span.active {
+    color: red;
+    -webkit-text-stroke: 0;
+}
+.hide {
+    display: none !important;
+}
+.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
