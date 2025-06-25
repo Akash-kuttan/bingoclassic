@@ -82,9 +82,6 @@ body {
     color: red;
     -webkit-text-stroke: 0;
 }
-.hide {
-    display: none !important;
-}
 .disabled {
     pointer-events: none;
     opacity: 0.6;
