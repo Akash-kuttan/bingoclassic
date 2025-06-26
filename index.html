@@ -18,27 +18,26 @@
   <style>
     body {
       background: url('bg.jpg') no-repeat center center / cover, var(--bs-body-bg);
+      min-height: 100vh;
+    }
+    .game-wrapper{
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     @media (max-width: 767.98px) {
       body {
         background: var(--bs-dark-bg-subtle) !important;
       }
-    }
-
-    /* Styles for DESKTOP and TABLET screens (768px and wider) */
-    @media (min-width: 768px) {
-      .game-wrapper {
-        min-height: 70vh; /* Only apply min-height to larger screens */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .mp{
+      padding: 6rem 0rem !important;
       }
     }
   </style>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column">
   <!-- Header -->
   <header class="container-fluid bg-dark py-3">
     <div class="container">
@@ -73,7 +72,8 @@
 
   <!-- Main Game Area -->
   <main class="flex-grow-1 px-3 py-3 game-wrapper">
-    <div class="w-100">
+    <div class="w-100 mp">
+      <h5 class="text-center text-muted">Hint : Click the cells to fill numbers</h5>
       <div class="grid" id="grid"></div>
 
       <div class="container text-center mt-4">
